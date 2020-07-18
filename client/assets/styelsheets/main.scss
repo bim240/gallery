@@ -1,3 +1,21 @@
+$enable-responsive-font-sizes: true;
+
 @import "./header.scss";
 @import "./home.scss";
 @import "./footer.scss";
+@import "./add_images_pop.scss";
+
+.add_image_button {
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2rem;
+  bottom: 50px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0.7;
+}

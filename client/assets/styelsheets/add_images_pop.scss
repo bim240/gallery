@@ -1,0 +1,32 @@
+.add_image_section {
+  width: 100%;
+  .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+  .btn_section {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .preview_image {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+    img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+  }
+}
