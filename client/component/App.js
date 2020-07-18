@@ -1,7 +1,14 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Header from "./views/Header";
 
 function App() {
-  return <h1>Inside app</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
