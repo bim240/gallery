@@ -7,7 +7,7 @@ var mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-
+var imgesRouter = require("./routes/image");
 var app = express();
 
 // Webpack Configuration
@@ -49,6 +49,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // routes for backend
 app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/image", imgesRouter);
 // all the routes to  frontend
 app.use("/", indexRouter);
 
