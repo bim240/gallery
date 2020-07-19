@@ -11,8 +11,8 @@ module.exports = {
   },
   addImage: async (req, res, next) => {
     try {
-      await Image.create({ imageName: req.file.filename });
-      res.status(200).json({ message: "success" });
+      var newImage = await Image.create({ imageName: req.file.filename });
+      res.status(200).json({ image: newImage });
     } catch (error) {
       next(error);
     }

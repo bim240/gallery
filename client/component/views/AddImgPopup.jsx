@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { handleAddImageRequest } from "../../store/action/imgesAction";
+import { handleAddImageRequest } from "../../store/action/imageAction";
 
 const AddImgPopup = (props) => {
   let [imageData, setImageData] = useState("");

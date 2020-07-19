@@ -1,27 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
+import { connect } from "react-redux";
+import SingleImage from "./SingleImage";
 
 const Home = (props) => {
-  return (
-    <div className="container my-5">
-      <h1 className="text-center my-2">Images</h1>
+  let [images, setImages] = useState([]);
+  let isImageFetchInProgress = props.imagesInfo.isImageFetchInProgress;
 
-      <div className="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 row-cols-xl-8 ">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((element) => {
-          return (
-            <div
-              key={uuid()}
-              style={{
-                border: "1px solid green",
-                width: "50px",
-                height: "50px",
-              }}
-              className="col my-1"></div>
-          );
-        })}
-      </div>
+  useEffect(() => {
+    setImages((images = props.imagesInfo.images));
+  });
+
+  return (
+    <div className="container my-5 home_container">
+      <h1 className="text-center my-5">Images</h1>
+      {images.length ? (
+        <div className="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 row-cols-xl-8 ">
+          {images.map((image) => {
+            return (
+              <div key={uuid()} className="col my-1 rounded border">
+                <img src={`/uploads/${image.imageName}`} alt="image" />
+              </div>
+            );
+          })}
+        </div>
+      ) : isImageFetchInProgress ? (
+        "loading"
+      ) : (
+        "no images"
+      )}
     </div>
   );
 };
 
-export default Home;
+function mapStateToProps(state) {
+  return {
+    imagesInfo: state,
+  };
+}
+export default connect(mapStateToProps)(Home);
