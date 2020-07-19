@@ -1,15 +1,27 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { handleAddImageRequest } from "../../store/action/imgesAction";
 
 const AddImgPopup = (props) => {
+  let [imageData, setImageData] = useState("");
   let [file, setFile] = useState("");
 
   const handlePreviewOfImage = (e) => {
-    // console.dir(e.target.files.length, "length of file");
     if (e.target.files.length) {
       setFile((file = URL.createObjectURL(e.target.files[0])));
+      setImageData((imageData = e.target.files[0]));
     }
-    console.log(file);
   };
+
+  const handleAddImage = () => {
+    if (imageData) {
+      props.dispatch(handleAddImageRequest(imageData));
+      props.close();
+    } else {
+      alert("please select an image");
+    }
+  };
+
   return (
     <>
       <div className="add_image_section ">
@@ -40,7 +52,10 @@ const AddImgPopup = (props) => {
             onClick={props.close}>
             Cancel
           </button>
-          <button className="btn btn-secondary " type="button">
+          <button
+            className="btn btn-secondary "
+            type="button"
+            onClick={handleAddImage}>
             Add
           </button>
         </div>
@@ -49,4 +64,4 @@ const AddImgPopup = (props) => {
   );
 };
 
-export default AddImgPopup;
+export default connect()(AddImgPopup);
