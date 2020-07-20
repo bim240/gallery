@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import { connect } from "react-redux";
-import SingleImage from "./SingleImage";
 
 const Home = (props) => {
   let [images, setImages] = useState([]);
@@ -18,7 +17,9 @@ const Home = (props) => {
         <div className="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 row-cols-xl-8 ">
           {images.map((image) => {
             return (
-              <div key={uuid()} className="col my-1 rounded border">
+              <div
+                key={uuid()}
+                className="col my-1 rounded border single_image">
                 <img src={`/uploads/${image.imageName}`} alt="image" />
               </div>
             );

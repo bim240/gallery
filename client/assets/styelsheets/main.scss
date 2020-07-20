@@ -4,15 +4,17 @@ $enable-responsive-font-sizes: true;
 @import "./home.scss";
 @import "./footer.scss";
 @import "./add_images_pop.scss";
+@import "./image_cropper.scss";
 
 .add_image_button {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   text-align: center;
   vertical-align: middle;
   font-size: 2rem;
-  bottom: 50px;
-  right: 50px;
+  z-index: 1;
+  top: 85vh;
+  right: 5vh;
   width: 60px;
   height: 60px;
   border-radius: 50%;

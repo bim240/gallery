@@ -10,6 +10,7 @@ const AddImgPopup = (props) => {
     if (e.target.files.length) {
       setFile((file = URL.createObjectURL(e.target.files[0])));
       setImageData((imageData = e.target.files[0]));
+      console.log(imageData, "images", typeof imageData);
     }
   };
 
