@@ -1,0 +1,13 @@
+.image_cropper_container {
+  .source_image {
+    padding: 0 !important;
+    img {
+      width: 100%;
+      height: 80vh;
+    }
+  }
+  .destination_image img {
+    width: 100%;
+    height: 35vh;
+  }
+}

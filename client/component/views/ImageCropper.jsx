@@ -18,6 +18,8 @@ const ImageCropper = (props) => {
   useEffect(() => {
     const cropper = new Cropper(imageElement.current, {
       scalable: false,
+      viewMode: 2,
+      aspectRatio: 1,
       crop: () => {
         const canvas = cropper.getCroppedCanvas();
         setImageDestination((imageDestination = canvas.toDataURL("image/png")));
@@ -27,19 +29,32 @@ const ImageCropper = (props) => {
 
   return (
     <>
-      <div className="container">
-        <div className="img-container ">
+      <div className="container row image_cropper_container my-5 mx-auto">
+        <div className="source_image col-lg-8 col-md-11 rounded border my-3">
           <img
             ref={imageElement}
             src="https://image.flaticon.com/icons/svg/1590/1590898.svg"
             alt="Source"
-            crossorigin
+            crossOrigin
           />
         </div>
-        <img src={imageDestination} className="img-preview" alt="Destination" />
-        <button className="btn btn-secondary" onClick={handleUpdateButton}>
-          submit
-        </button>
+        <div className="col-lg-3 col-md-6 col-sm-6 destination_image ml-4 rounded border mx-auto my-3">
+          <img
+            src={imageDestination}
+            className="img-preview mt-3"
+            alt="Destination"
+          />
+          <button
+            className="btn btn-secondary m-4"
+            onClick={handleUpdateButton}>
+            Add as new
+          </button>
+          <button
+            className="btn btn-secondary m-4"
+            onClick={handleUpdateButton}>
+            Replace and Add
+          </button>
+        </div>
       </div>
     </>
   );
