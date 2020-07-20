@@ -19,7 +19,7 @@ module.exports = {
   },
   deleteImage: async (req, res, next) => {
     try {
-      await Image.findByIdAndDelete(req.body.image);
+      await Image.findByIdAndDelete(req.params.id);
       res.status(200).json({ message: "success" });
     } catch (error) {
       next(error);

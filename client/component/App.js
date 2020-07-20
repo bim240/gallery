@@ -21,7 +21,7 @@ function App(props) {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/edit" component={ImageCropper} />
+        <Route path="/edit/:id" component={ImageCropper} />
       </Switch>
       <Footer />
       <AddImgButton />

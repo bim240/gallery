@@ -18,6 +18,6 @@ var upload = multer({ storage: storage });
 
 router.get("/", imageController.getAllImage);
 router.post("/", upload.single("image"), imageController.addImage);
-router.delete("/", imageController.deleteImage);
+router.delete("/:id", imageController.deleteImage);
 
 module.exports = router;

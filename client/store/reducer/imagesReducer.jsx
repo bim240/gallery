@@ -40,6 +40,17 @@ export default function images(state = initialState, action) {
         isImageFetchInProgress: false,
         error: "Failed to upload the images",
       };
+    case "IMAGE_DELETE_FAIL":
+      return {
+        ...state,
+        error: "Failed to upload the images",
+      };
+    case "IMAGE_DELETE_SUCCESS":
+      return {
+        ...state,
+        images: state.images.filter((image) => image._id !== action.payload),
+        error: "",
+      };
     default:
       return state;
   }

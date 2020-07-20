@@ -1,5 +1,6 @@
 const axios = require("axios").default;
 
+// handle get all images
 const handleGetAllImagesRequest = () => {
   return async function (dispatch) {
     dispatch({ type: "IMAGE_FETCH_IN_PROGRESS" });
@@ -11,7 +12,7 @@ const handleGetAllImagesRequest = () => {
     }
   };
 };
-
+// handle adding a new images
 const handleAddImageRequest = (imageData) => {
   const image = new FormData();
   image.append("image", imageData);
@@ -32,4 +33,27 @@ const handleAddImageRequest = (imageData) => {
   };
 };
 
-export { handleAddImageRequest, handleGetAllImagesRequest };
+// handle  deleting image
+const handleDeleteImageRequest = (id) => {
+  return async function (dispatch) {
+    try {
+      var response = await axios.delete(`/api/v1/image/${id}`);
+      if (response.status == 200) {
+        dispatch({
+          type: "IMAGE_DELETE_SUCCESS",
+          payload: id,
+        });
+      } else {
+        dispatch({ type: "IMAGE_DELETE_FAIL" });
+      }
+    } catch (error) {
+      dispatch({ type: "IMAGE_DELETE_FAIL" });
+    }
+  };
+};
+
+export {
+  handleAddImageRequest,
+  handleGetAllImagesRequest,
+  handleDeleteImageRequest,
+};
