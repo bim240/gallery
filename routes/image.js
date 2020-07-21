@@ -3,11 +3,6 @@ var router = express.Router();
 var multer = require("multer");
 var path = require("path");
 
-function mergeImage(req, res, next) {
-  console.log("image");
-  next();
-}
-
 var imageController = require("../controller/image");
 
 var storage = multer.diskStorage({
@@ -22,7 +17,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.get("/", imageController.getAllImage);
-router.post("/", mergeImage, upload.single("image"), imageController.addImage);
+router.post("/", upload.single("image"), imageController.addImage);
 router.delete("/:id", imageController.deleteImage);
 
 module.exports = router;
