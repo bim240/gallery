@@ -25,9 +25,10 @@ const Home = (props) => {
           {images.map((image) => {
             return (
               <div
+                title="Image"
                 key={uuid()}
-                className="col my-1 rounded border single_image">
-                <div className="option_for_images">
+                className="col my-1 rounded border  single_image">
+                <div className="option_for_images" title="Options">
                   <Dropdown>
                     <Dropdown.Toggle
                       variant=""

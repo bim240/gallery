@@ -30,6 +30,8 @@ const ImageCropper = (props) => {
   useEffect(() => {
     if (imageToBeCropped) {
       const cropper = new Cropper(imageElement.current, {
+        movable: true,
+        rotatable: true,
         scalable: false,
         viewMode: 2,
         aspectRatio: 1,

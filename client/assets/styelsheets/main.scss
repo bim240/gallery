@@ -1,5 +1,11 @@
 $enable-responsive-font-sizes: true;
-
+body {
+  background-image: radial-gradient(
+    circle 993px at 0.5% 50.5%,
+    rgba(137, 171, 245, 0.37) 0%,
+    rgba(245, 247, 252, 1) 100.2%
+  );
+}
 @import "./header.scss";
 @import "./home.scss";
 @import "./footer.scss";
@@ -19,5 +25,5 @@ $enable-responsive-font-sizes: true;
   height: 60px;
   border-radius: 50%;
   background: transparent;
-  opacity: 0.7;
+  color: rgb(137, 171, 245);
 }

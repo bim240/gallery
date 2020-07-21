@@ -5,7 +5,7 @@ import AddImgPopup from "./AddImgPopup";
 
 const AddImgButton = () => {
   return (
-    <div>
+    <div title="Add Image">
       <Popup
         trigger={
           <div className="add_image_button">
