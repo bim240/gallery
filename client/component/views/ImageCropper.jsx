@@ -64,17 +64,17 @@ const ImageCropper = (props) => {
               alt="Destination"
             />
             <button
-              className="btn btn-secondary m-4"
+              className="btn btn-secondary m-4 btn_background"
               onClick={handleUpdateButton}>
               Add as new
             </button>
             <button
-              className="btn btn-secondary m-4"
+              className="btn btn-secondary m-4 btn_background"
               onClick={() => handleDeleteOldAndAddNewImg(imageToBeCropped._id)}>
               Replace and Add new
             </button>
             <button
-              className="btn btn-secondary m-4"
+              className="btn btn-secondary m-4 btn_background"
               onClick={() => props.history.push("/")}>
               Cancel
             </button>
