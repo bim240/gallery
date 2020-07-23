@@ -39,6 +39,7 @@ const AddImgPopup = (props) => {
         </div>
         <div className="input-group my-3 ">
           <div className="custom-file">
+            <label htmlFor="inputGroupFile04"> Select an image</label>
             <input
               type="file"
               id="inputGroupFile04"
