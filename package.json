@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "test": "jest --watch",
+    "storybook": "start-storybook",
     "start": "NODE_ENV=development nodemon ./bin/www ",
     "webpack": "webpack-dev-server --config ./webpack.config.js --mode development ",
     "sass": "node-sass -w ./client/assets/stylesheets/style.scss ./client/assets/stylesheets/style.css"
   },
   "dependencies": {
+    "@storybook/react": "^5.3.19",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
