@@ -6,4 +6,5 @@ module.exports = {
   moduleNameMapper: {
     "\\.scss": require.resolve("./style_mock.js"),
   },
+  testMatch: ["**/__test__/**/*.js"],
 };
