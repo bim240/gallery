@@ -1,8 +1,9 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Home from "../views/Home";
 
+import Home from "../views/Home";
 import { store } from "../../store/index";
+import { handleGetAllImagesRequest } from "../../store/action/imageAction";
 
 export default { title: "Home", component: Home };
 
@@ -11,14 +12,10 @@ export const withoutImage = () => (
     <Home />
   </Provider>
 );
-let initialState = {
-  isImageFetchInProgress: false,
-  addImageInProgress: false,
-  images: ["https://image.flaticon.com/icons/svg/740/740935.svg"],
-  error: "",
-};
+
+store.dispatch(handleGetAllImagesRequest());
 export const withImage = () => (
   <Provider store={store}>
-    <Home state={initialState} />
+    <Home />
   </Provider>
 );
